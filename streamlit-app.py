@@ -15,6 +15,6 @@ chart = alt.Chart(data).mark_bar().encode( x='SepalLength', y='SepalWidth')
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
-#chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength') 
+chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength') 
 # Afficher le chart sur Streamlit 
-#st.altair_chart(chart, use_container_width=True)
+st.altair_chart(chart, use_container_width=True)
