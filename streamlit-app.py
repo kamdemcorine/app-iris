@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotli.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 data = pd.read_csv('Iris.csv', delimiter = ';')
