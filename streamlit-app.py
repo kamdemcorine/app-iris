@@ -23,4 +23,6 @@ chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength')
 st.altair_chart(chart, use_container_width=True)
 
 with st.sidebar:
-  st.title('Iris visualisation')
+  st.title('Iris visualisation menu')
+  st.selectbox("selectionner une classe:", "Setosa","Versicolor","Virginica"
+  #speciesSlide = st.slider("Especes", 'Setosa','Versicolor','Virginica')
