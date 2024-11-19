@@ -3,7 +3,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-import plotly.express as px
+#import plotly.express as px
 #import matplotlib.pyplot as plt
 
 
@@ -23,4 +23,4 @@ chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength')
 st.altair_chart(chart, use_container_width=True)
 
 with st.sidebar:
-  st.title('Mon premier dashboard avec Streamlit')
+  st.title('Iris visualisation')
