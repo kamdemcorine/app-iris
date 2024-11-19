@@ -24,5 +24,5 @@ st.altair_chart(chart, use_container_width=True)
 
 with st.sidebar:
   st.title('Iris visualisation menu')
-  st.selectbox("selectionner une classe:", "Setosa","Versicolor","Virginica"
+  st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"]
   #speciesSlide = st.slider("Especes", 'Setosa','Versicolor','Virginica')
