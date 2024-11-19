@@ -8,7 +8,9 @@ import plotly.express as px
 
 
 data = pd.read_csv('Iris.csv', delimiter = ';')
-st.title('Mon premier dashboard avec Streamlit')
+with st.sidebar:
+  st.title('Mon premier dashboard avec Streamlit')
+#st.title('Mon premier dashboard avec Streamlit')
 #st.table(data)
 
 # Créer un chart Altair 
