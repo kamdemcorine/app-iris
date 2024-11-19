@@ -1,9 +1,9 @@
-pip -q install plotly
+#pip -q install plotly
 
 import streamlit as st
 import pandas as pd
 import altair as alt
-import plotly.express as px
+#import plotly.express as px
 #import matplotlib.pyplot as plt
 
 
@@ -29,3 +29,13 @@ with st.sidebar:
   speciesSlide = st.slider("Data", "setosa", "versicolor", "virginica")
   st.write("espece:", slide_espece)
   #speciesSlide = st.slider("Especes", 'Setosa','Versicolor','Virginica')
+
+lines = (
+    alt.Chart(data, title="Evolution of stock prices")
+    .mark_line()
+    .encode(
+        x="SepalLength",
+        y="Species",
+        color="symbol",
+    )
+)
