@@ -27,5 +27,5 @@ with st.sidebar:
   st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"])
 
   speciesSlide = st.slider("Data", "setosa", "versicolor", "virginica")
-    st.write("espece:", slide_espece)
+  st.write("espece:", slide_espece)
   #speciesSlide = st.slider("Especes", 'Setosa','Versicolor','Virginica')
