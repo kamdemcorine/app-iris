@@ -1,4 +1,4 @@
-!pip  install streamlit altair
+pip  install streamlit altair
 
 import streamlit as st
 import pandas as pd
