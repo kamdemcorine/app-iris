@@ -15,7 +15,7 @@ with st.sidebar:
 #st.table(data)
 
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
-chart = alt.Chart(data).mark_area().encode( x='SepalLength', y='SepalWidth') 
+chart = alt.Chart(data).mark_arc().encode( x='SepalLength', y='SepalWidth') 
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
