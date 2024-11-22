@@ -15,8 +15,12 @@ with st.sidebar:
 #st.table(data)
 
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
-values = data.value_counts(subset = 'Species')
-chart = alt.Chart(data).mark_arc().encode( x=values, y='Species') 
+values = data['Species'].value_counts(subset = 'Species').reset_index()
+species_count_columns = ['Species','count']
+chart = alt.Chart(species_count).mark_bar().encode(
+  x='Species', 
+  y='count').properties(
+  title = 'Effectif de chaque modalite du jeu de donnees Iris')
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
