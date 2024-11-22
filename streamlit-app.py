@@ -3,7 +3,6 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-import seaborn as sns
 #import matplotlib.pyplot as plt
 
 #importation du jeu de donnees
