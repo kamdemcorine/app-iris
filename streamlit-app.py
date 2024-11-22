@@ -21,9 +21,6 @@ with st.sidebar:
   st.title('parametres du dashboard')
   st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"])
   st.header('Selection de couleur')
-  speciesSlide = st.slider("Data:", "setosa", "versicolor", "virginica")
-  st.write("espece:", slide_espece)
-
 
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
 species_values = data['Species'].value_counts().reset_index()
