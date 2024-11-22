@@ -15,9 +15,9 @@ with st.sidebar:
 #st.table(data)
 
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
-values = data['Species'].value_counts().reset_index()
-values.columns = ['Species','count']
-chart = alt.Chart(species_count).mark_bar().encode(
+species_values = data['Species'].value_counts().reset_index()
+species_values.columns = ['Species','count']
+chart = alt.Chart(species_values).mark_bar().encode(
   x='Species', 
   y='count').properties(
   title = 'Effectif de chaque modalite du jeu de donnees Iris')
