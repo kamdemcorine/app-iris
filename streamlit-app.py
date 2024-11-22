@@ -15,7 +15,7 @@ with st.sidebar:
 #st.table(data)
 
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
-values = data['Species'].value_counts(subset = 'Species').reset_index()
+values = data['Species'].value_counts().reset_index()
 species_count_columns = ['Species','count']
 chart = alt.Chart(species_count).mark_bar().encode(
   x='Species', 
