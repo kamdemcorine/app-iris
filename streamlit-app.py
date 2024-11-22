@@ -1,9 +1,8 @@
-pip install plotly
+#pip install plotly --upgrade
 
 import streamlit as st
 import pandas as pd
 import altair as alt
-import plotly.express as px
 #import matplotlib.pyplot as plt
 
 #importation du jeu de donnees
@@ -15,8 +14,8 @@ with st.sidebar:
 #st.title('Mon premier dashboard avec Streamlit')
 #st.table(data)
 
-# Créer un chart Altair 
-chart = alt.Chart(data).mark_bar().encode( x='SepalLength', y='SepalWidth') 
+# Créer un chart Altair pour afficher l'effectif de chaque modalite
+chart = alt.Chart(data).mark_area().encode( x='SepalLength', y='SepalWidth') 
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
