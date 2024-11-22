@@ -21,7 +21,7 @@ st.title('Visualisation du jeu de donnees')
 with st.sidebar:
   st.title('parametres du dashboard')
   st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"])
-  st.sidebar.selectbox("Selectionner une couleur:", [)
+  st.header('Selection de couleur')
   speciesSlide = st.slider("Data", "setosa", "versicolor", "virginica")
   st.write("espece:", slide_espece)
 
