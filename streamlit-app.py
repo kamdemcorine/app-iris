@@ -3,12 +3,14 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-#import plotly.express as px
+import plotly.express as px
 #import matplotlib.pyplot as plt
 
-
+#importation du jeu de donnees
 data = pd.read_csv('Iris.csv', delimiter = ';')
+#creation d'un sidebar
 with st.sidebar:
+#ajouter le titre
   st.title('Mon premier dashboard avec Streamlit')
 #st.title('Mon premier dashboard avec Streamlit')
 #st.table(data)
