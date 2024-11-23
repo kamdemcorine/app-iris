@@ -54,7 +54,7 @@ with cols[1]:
 
   #Correlation entre la largeur des petales et des sepales
   chart = alt.Chart(data).mark_point().encode( 
-    x='PetalWidth', y='PetalWidth',
+    x='SepalWidth', y='PetalWidth',
     color = alt.value(color)).properties(
     title = 'Correlation entre la largeur des petales et des sepales')
   # Afficher le chart sur Streamlit 
