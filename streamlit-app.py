@@ -58,14 +58,3 @@ with col2:
     title = 'Correlation entre la largeur des petales et des sepales')
   # Afficher le chart sur Streamlit 
   st.altair_chart(chart, use_container_width=True)
-
-
-
-lines = (
-    alt.Chart(data, title="Evolution of stock prices")
-    .mark_line()
-    .encode(
-        x="SepalLength",
-        y="Species",
-        color="symbol",
-    )
