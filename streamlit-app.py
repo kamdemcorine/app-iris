@@ -1,9 +1,8 @@
 #pip install plotly --upgrade
-pip install matplotlib
 import streamlit as st
 import pandas as pd
 import altair as alt
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #importation du jeu de donnees
 data = pd.read_csv('Iris.csv', delimiter = ';')
@@ -22,13 +21,17 @@ with st.sidebar:
   st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"])
   st.header('Selection de couleur')
 
+# Widget pour sélectionner une couleur 
+color = st.color_picker('Choisissez une couleur', '#00f900') 
+st.write('La couleur sélectionnée est', color)
+
 # Créer un chart Altair pour afficher l'effectif de chaque modalite
 species_values = data['Species'].value_counts().reset_index()
 species_values.columns = ['Species','count']
 chart = alt.Chart(species_values).mark_bar().encode(
   x='Species', 
   y='count').properties(
-  title = 'Effectif de chaque modalite du jeu de donnees Iris')
+  title = 'Distribution des especes d'iris')
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
