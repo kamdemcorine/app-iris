@@ -26,8 +26,8 @@ with st.sidebar:
   st.write('La couleur sélectionnée est', color)
 
 # Créer les colonnes 
-col1, col2, col3, col4 = st.columns(4)
-with col1:
+cols = st.columns((1.5, 4.5), gap = 'medium')
+with cols[0]:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
   species_values = data['Species'].value_counts().reset_index()
   species_values.columns = ['Species','count']
@@ -43,7 +43,7 @@ with col1:
   # Afficher le chart sur Streamlit 
   st.altair_chart(chart, use_container_width=True)
 
-with col2:
+with cols[1]:
   chart = alt.Chart(data).mark_point().encode( 
     x='SepalWidth', y='PetalLength',
     color = alt.value(color)).properties(
