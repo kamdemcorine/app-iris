@@ -21,6 +21,8 @@ with st.sidebar:
   st.selectbox("selectionner une classe:", ["Setosa","Versicolor","Virginica"])
   st.header('Selection de couleur')
 
+# Créer les colonnes 
+col1, col2, col3, col4 = st.columns(4)
   # Widget pour sélectionner une couleur 
   color = st.color_picker('Choisissez une couleur', '#00f900') 
   st.write('La couleur sélectionnée est', color)
