@@ -25,37 +25,38 @@ with st.sidebar:
   color = st.color_picker('Choisissez une couleur', '#00f900') 
   st.write('La couleur sélectionnée est', color)
 
-# Créer un chart Altair pour afficher l'effectif de chaque modalite
-species_values = data['Species'].value_counts().reset_index()
-species_values.columns = ['Species','count']
-chart = alt.Chart(species_values).mark_bar().encode(
-  x='Species', 
-  y='count',
-  color = alt.value(color)).properties(
-  title = 'Distribution des especes d\'iris')
-# Afficher le chart sur Streamlit 
-st.altair_chart(chart, use_container_width=True)
+  with col1:
+  # Créer un chart Altair pour afficher l'effectif de chaque modalite
+  species_values = data['Species'].value_counts().reset_index()
+  species_values.columns = ['Species','count']
+  chart = alt.Chart(species_values).mark_bar().encode(
+    x='Species', 
+    y='count',
+    color = alt.value(color)).properties(
+    title = 'Distribution des especes d\'iris')
+  # Afficher le chart sur Streamlit 
+  st.altair_chart(chart, use_container_width=True)
 
+with col2:
+  chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength') 
+  # Afficher le chart sur Streamlit 
+  st.altair_chart(chart, use_container_width=True)
 
-chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength') 
-# Afficher le chart sur Streamlit 
-st.altair_chart(chart, use_container_width=True)
-
-
-chart = alt.Chart(data).mark_point().encode( 
-  x='SepalWidth', y='PetalLength',
-  color = alt.value(color)).properties(
-  title = 'Correlation entre la longueur des sepales et des petales') 
-# Afficher le chart sur Streamlit 
-st.altair_chart(chart, use_container_width=True)
-
-#Correlation entre la largeur des petales et des sepales
-chart = alt.Chart(data).mark_point().encode( 
-  x='PetalWidth', y='PetalWidth',
-  color = alt.value(color)).properties(
-  title = 'Correlation entre la largeur des petales et des sepales')
-# Afficher le chart sur Streamlit 
-st.altair_chart(chart, use_container_width=True)
+with col3:
+  chart = alt.Chart(data).mark_point().encode( 
+    x='SepalWidth', y='PetalLength',
+    color = alt.value(color)).properties(
+    title = 'Correlation entre la longueur des sepales et des petales') 
+  # Afficher le chart sur Streamlit 
+  st.altair_chart(chart, use_container_width=True)
+with col4:
+  #Correlation entre la largeur des petales et des sepales
+  chart = alt.Chart(data).mark_point().encode( 
+    x='PetalWidth', y='PetalWidth',
+    color = alt.value(color)).properties(
+    title = 'Correlation entre la largeur des petales et des sepales')
+  # Afficher le chart sur Streamlit 
+  st.altair_chart(chart, use_container_width=True)
 
 
 
