@@ -29,6 +29,7 @@ with st.sidebar:
 cols = st.columns((1.5, 4.5), gap = 'medium')
 with cols[0]:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
+  st.markdown('####Distribution des especes')
   species_values = data['Species'].value_counts().reset_index()
   species_values.columns = ['Species','count']
   chart = alt.Chart(species_values).mark_bar().encode(
