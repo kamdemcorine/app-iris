@@ -30,7 +30,8 @@ species_values = data['Species'].value_counts().reset_index()
 species_values.columns = ['Species','count']
 chart = alt.Chart(species_values).mark_bar().encode(
   x='Species', 
-  y='count').properties(
+  y='count',
+  color = alt.value(color)).properties(
   title = 'Distribution des especes d\'iris')
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
