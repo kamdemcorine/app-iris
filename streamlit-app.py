@@ -3,7 +3,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 #importation du jeu de donnees
 data = pd.read_csv('Iris.csv', delimiter = ';')
