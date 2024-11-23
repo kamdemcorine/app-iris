@@ -36,16 +36,6 @@ chart = alt.Chart(species_values).mark_bar().encode(
 # Afficher le chart sur Streamlit 
 st.altair_chart(chart, use_container_width=True)
 
-# Créer un chart Altair pour afficher l'effectif de chaque modalite
-species_values = data['Species'].value_counts().reset_index()
-species_values.columns = ['Species','count']
-chart = alt.Chart(species_values).mark_().encode(
-  x='Species', 
-  y='count',
-  color = alt.value(color)).properties(
-  title = 'Distribution des especes d\'iris')
-# Afficher le chart sur Streamlit 
-st.altair_chart(chart, use_container_width=True)
 
 chart = alt.Chart(data).mark_point().encode( x='SepalLength', y='PetalLength') 
 # Afficher le chart sur Streamlit 
