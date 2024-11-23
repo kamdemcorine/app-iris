@@ -25,7 +25,7 @@ with st.sidebar:
   color = st.color_picker('Choisissez une couleur', '#00f900') 
   st.write('La couleur sélectionnée est', color)
 
-  with col1:
+with col1:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
   species_values = data['Species'].value_counts().reset_index()
   species_values.columns = ['Species','count']
