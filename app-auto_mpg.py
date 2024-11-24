@@ -48,7 +48,7 @@ with cols[1]:
   chart = alt.Chart(data).mark_boxplot().encode( 
     x='model year:O', y='mpg:Q' ).properties( 
     title='Comparaison de la Consommation de Carburant par Année de Modèle' )
-  st.altair_chart(chart, use_width_container = True)
+  st.altair_chart(chart, use_container_width = True)
 
   chart = alt.Chart(data).mark_bar().encode( 
     x='origin:N', y='count()', color='cylinders:O' ).properties( 
@@ -70,4 +70,5 @@ with cols[2]:
       y='index:N',
       color='value:Q').properties(
       title='Carte de Chaleur des Corrélations')
+  st.chart_altair(chart, use_container_width = True)
 
