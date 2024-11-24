@@ -26,7 +26,7 @@ with st.sidebar:
   st.write('La couleur sélectionnée est', color)
 
 # Créer les colonnes 
-cols = st.columns((4,4,4), gap = 'medium')
+cols = st.columns((8,4,4), gap = 'medium')
 with cols[0]:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
   chart = alt.Chart(data).mark_circle(size=60).encode( 
