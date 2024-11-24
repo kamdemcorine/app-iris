@@ -38,11 +38,11 @@ with cols[0]:
 # Afficher le chart sur Streamlit 
   st.altair_chart(chart, use_container_width=True)
 
-chart = alt.Chart(data).mark_bar().encode( 
-  x=alt.X('mpg:Q', bin=True), 
-  y='count()', color='origin:N' ).properties( 
-  title='Distribution de la Consommation de Carburant' )
-st.altair_chart(chart, use_container_width = True)
+  chart = alt.Chart(data).mark_bar().encode( 
+    x=alt.X('mpg:Q', bin=True), 
+    y='count()', color='origin:N' ).properties( 
+    title='Distribution de la Consommation de Carburant' )
+  st.altair_chart(chart, use_container_width = True)
 
 with cols[1]:
   chart = alt.Chart(data).mark_boxplot().encode( 
@@ -50,24 +50,24 @@ with cols[1]:
     title='Comparaison de la Consommation de Carburant par Année de Modèle' )
   st.altair_chart(chart, use_width_container = True)
 
-chart = alt.Chart(data).mark_bar().encode( 
-  x='origin:N', y='count()', color='cylinders:O' ).properties( 
-  title='Répartition des Voitures par Cylindres et Origine' )
-st.altair_chart(chart, use_container_width = True)
-
-chart = alt.Chart(data).mark_line().encode(
-    x='model year:O',
-    y='mean(mpg):Q',
-    color='origin:N'
-).properties(
-    title='Tendances de la Consommation de Carburant au Fil des Années')
-st.altair_chart(chart, use_container_width = True)
+  chart = alt.Chart(data).mark_bar().encode( 
+    x='origin:N', y='count()', color='cylinders:O' ).properties( 
+    title='Répartition des Voitures par Cylindres et Origine' )
+  st.altair_chart(chart, use_container_width = True)
+  
+  chart = alt.Chart(data).mark_line().encode(
+      x='model year:O',
+      y='mean(mpg):Q',
+      color='origin:N'
+  ).properties(
+      title='Tendances de la Consommation de Carburant au Fil des Années')
+  st.altair_chart(chart, use_container_width = True)
 
 with cols[2]:
   correlation_matrix = data.corr().reset_index().melt('index')
-chart = alt.Chart(correlation_matrix).mark_rect().encode(
-    x='variable:N',
-    y='index:N',
-    color='value:Q').properties(
-    title='Carte de Chaleur des Corrélations')
+  chart = alt.Chart(correlation_matrix).mark_rect().encode(
+      x='variable:N',
+      y='index:N',
+      color='value:Q').properties(
+      title='Carte de Chaleur des Corrélations')
 
