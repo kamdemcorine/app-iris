@@ -26,10 +26,10 @@ with st.sidebar:
   st.write('La couleur sélectionnée est', color)
 
 # Créer les colonnes 
-cols = st.columns((4.5, 4.5), gap = 'medium')
+cols = st.columns((4,4,4), gap = 'medium')
 with cols[0]:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
-  alt.Chart(data).mark_circle(size=60).encode( 
+  chart = alt.Chart(data).mark_circle(size=60).encode( 
     x='horsepower:Q', 
     y='mpg:Q', 
     color='origin:N', 
@@ -38,24 +38,24 @@ with cols[0]:
 # Afficher le chart sur Streamlit 
   st.altair_chart(chart, use_container_width=True)
 
-alt.Chart(data).mark_bar().encode( 
+chart = alt.Chart(data).mark_bar().encode( 
   x=alt.X('mpg:Q', bin=True), 
   y='count()', color='origin:N' ).properties( 
   title='Distribution de la Consommation de Carburant' )
 st.altair_chart(chart, use_container_width = True)
 
 with cols[1]:
-  alt.Chart(data).mark_boxplot().encode( 
+  chart = alt.Chart(data).mark_boxplot().encode( 
     x='model year:O', y='mpg:Q' ).properties( 
     title='Comparaison de la Consommation de Carburant par Année de Modèle' )
   st.altair_chart(chart, use_width_container = True)
 
-alt.Chart(data).mark_bar().encode( 
+chart = alt.Chart(data).mark_bar().encode( 
   x='origin:N', y='count()', color='cylinders:O' ).properties( 
   title='Répartition des Voitures par Cylindres et Origine' )
 st.altair_chart(chart, use_container_width = True)
 
-alt.Chart(data).mark_line().encode(
+chart = alt.Chart(data).mark_line().encode(
     x='model year:O',
     y='mean(mpg):Q',
     color='origin:N'
@@ -65,7 +65,7 @@ st.altair_chart(chart, use_container_width = True)
 
 with cols[2]:
   correlation_matrix = data.corr().reset_index().melt('index')
-alt.Chart(correlation_matrix).mark_rect().encode(
+chart = alt.Chart(correlation_matrix).mark_rect().encode(
     x='variable:N',
     y='index:N',
     color='value:Q').properties(
