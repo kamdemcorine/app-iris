@@ -26,7 +26,7 @@ with st.sidebar:
   st.write('La couleur sélectionnée est', color)
 
 # Créer les colonnes 
-cols = st.columns((8,8,6), gap = 'medium')
+cols = st.columns((4.5,4.5), gap = 'medium')
 with cols[0]:
   # Créer un chart Altair pour afficher l'effectif de chaque modalite
   chart = alt.Chart(data).mark_circle(size=60).encode( 
@@ -63,7 +63,6 @@ with cols[1]:
       title='Tendances de la Consommation de Carburant au Fil des Années')
   st.altair_chart(chart, use_container_width = True)
 
-with cols[2]:
   correlation_matrix = data.corr().reset_index().melt('index')
   chart = alt.Chart(correlation_matrix).mark_rect().encode(
       x='variable:N',
